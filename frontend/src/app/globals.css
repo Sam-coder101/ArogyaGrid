@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;600&family=Noto+Sans:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  /* Ultra-Premium MedTech Light Theme */
+  --color-ink: #0f172a;           /* Slate 900 for high-contrast text */
+  --color-canvas: #f8fafc;        /* Slate 50 for clean background */
+  --color-surface: #ffffff;       /* Pure white for cards */
+  --color-primary: #0d9488;       /* Teal 600 for medical trust */
+  --color-primary-deep: #0f766e;  /* Teal 700 for hover */
+  --color-accent: #3b82f6;        /* Blue 500 for AI highlights */
+  --color-signal-critical: #f43f5e; /* Rose 500 for critical alerts */
+  --color-signal-ok: #10b981;     /* Emerald 500 for success */
+  --color-line: #e2e8f0;          /* Slate 200 for soft borders */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Scale — Inherits Inter from layout.tsx */
+.text-display { font-size: 40px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+.text-h1 { font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+.text-h2 { font-size: 20px; font-weight: 600; line-height: 1.3; }
+.text-body { font-size: 15px; font-weight: 400; line-height: 1.6; }
+.text-caption { font-size: 13px; font-weight: 500; line-height: 1.5; }
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Ultra-Premium MedTech Aesthetics ── */
+
+/* Soft, diffuse shadows for white cards (Apple style) */
+.premium-shadow {
+  box-shadow: 
+    0 10px 30px -10px rgba(15, 23, 42, 0.08), 
+    0 4px 12px -4px rgba(15, 23, 42, 0.04);
+}
+
+/* Crystal clear glassmorphism */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 24px -8px rgba(15, 23, 42, 0.06);
+}
+
+/* Breathtaking Aurora Mesh Gradient Background */
+.gradient-bg {
+  background-color: var(--color-canvas);
+  background-image: 
+    radial-gradient(circle at 80% 0%, rgba(13, 148, 136, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 20% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(244, 63, 94, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Floating lift effect for interactive elements */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+.hover-lift:hover {
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: 
+    0 20px 40px -12px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(15, 23, 42, 0.05);
+}
+
+/* Beautiful tactile buttons */
+.btn-primary-anim {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+}
+.btn-primary-anim:hover {
+  background-color: var(--color-primary-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(13, 148, 136, 0.4);
+}
+.btn-primary-anim:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
+}
+
+/* ── AI Intelligence Animations ── */
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3); }
+  70% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.ai-active-glow {
+  animation: pulse-glow 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-color: var(--color-accent) !important;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fade-in-up 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
